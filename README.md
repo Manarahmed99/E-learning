@@ -20,9 +20,12 @@
 <p style="text-align: center;"><img src="https://github.com/Manarahmed99/E-learning/assets/62827972/0a9ec4e1-560e-4d3f-8d01-2798b6ae7343" alt="image"></p>
 
 <h2 style="text-align: center;">Login and Register Page</h2>
-
+<div style="text-align: center;">
+ <p style="text-align: center;"><img src="https://github.com/Manarahmed99/E-learning/assets/62827972/619c37d7-28d1-4f0e-b321-0ebf1d10ddc2" alt="image"></p>
+</div>
 <p style="text-align: center;"><img src="https://github.com/Manarahmed99/E-learning/assets/62827972/8e6d4765-12a8-4b96-8ae4-d950d5be8bc0" alt="image"></p>
-<p style="text-align: center;"><img src="https://github.com/Manarahmed99/E-learning/assets/62827972/619c37d7-28d1-4f0e-b321-0ebf1d10ddc2" alt="image"></p>
+
+
 
 <h2 style="text-align: center;">Courses Page</h2>
 
