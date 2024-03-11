@@ -1,11 +1,11 @@
 Tuwaiq Academy — أكادمية طويق
 
 <b> E-learing </b>
-![image](https://github.com/Manarahmed99/E-learning/assets/62827972/f498918b-ea94-48b7-a58f-8aef2a429534)
-
+![image](https://github.com/Manarahmed99/E-learning/assets/62827972/d7e193d4-8dac-4b06-b2ab-8aa7acf95c2f)
 <b> About the Project  </b>
 This final project, developed as part of the Django program offered by Tuwaiq Academy, Application for E-learning ,Through this application, users can browse and enroll in a variety of courses .
 <br>
+
 landing page 
 ![image](https://github.com/Manarahmed99/E-learning/assets/62827972/92239d7a-bf38-4fe7-9c20-e26e923c392e)
 ![image](https://github.com/Manarahmed99/E-learning/assets/62827972/4d83264d-3740-4b8f-b743-ed8d8dc68eab)
