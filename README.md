@@ -9,7 +9,9 @@
 <p style="text-align: center;">This final project, developed as part of the Django program offered by Tuwaiq Academy, is an application for E-learning. Through this application, users can browse and enroll in a variety of courses.</p>
 
 <h2 style="text-align: center;">Landing Page</h2>
-![image](https://github.com/Manarahmed99/E-learning/assets/62827972/f7fb0a7b-ce9c-4be4-8f7d-3fa48c3e13ff)
+<div style="text-align: center;">
+  <img src="https://github.com/Manarahmed99/E-learning/assets/62827972/f7fb0a7b-ce9c-4be4-8f7d-3fa48c3e13ff" alt="image" style="max-width: 100%; height: auto;">
+</div>
 
 
 <p style="text-align: center;"><img src="https://github.com/Manarahmed99/E-learning/assets/62827972/92239d7a-bf38-4fe7-9c20-e26e923c392e" alt="image"></p>
