@@ -1,0 +1,27 @@
+{% extends 'Header_Footer.html' %} 
+ 
+{% block content %} 
+
+<body style="background-color: #ef476ecd; display: flex; justify-content: center; align-items: center; height: 100vh;">
+    <div class="container  justify-content-center ms-5 ms-5" style="margin: auto;">
+        <section class="py-5 py-xl-8">
+            <div class="row text-center justify-content-center">
+                <div class="col-sm-5">
+                    <a href="{% url 'landingPage' %}" style="text-decoration:none; color: rgb(213, 72, 173);">
+                        <div class="card" style="width: 250px; height: 250px;">
+                            <div class="card-body" style="background-color: khaki;  display: flex; align-items: center; flex-direction: column; justify-content: center;">
+                                <i class="bi bi-phone text-center" style="font-size: 60px;"></i>
+                                <h6>مرحبا بك في TechEdu</h6>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+
+
+{% endblock %}
+ 
+

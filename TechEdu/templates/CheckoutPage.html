@@ -1,0 +1,142 @@
+{% extends 'Header_Footer.html' %}
+
+{% block content %}
+<body class="bg-light">
+    
+
+<div class="container mt-5">
+    <div class="py-5 text-center">
+        <img class="d-block mx-auto mb-4" src="https://cdn-icons-png.freepik.com/512/7835/7835563.png" alt="" width="99" height="99">
+        <h2>صفحة الدفع</h2>
+        <p class="lead">
+            هنا يمكنك إكمال عملية الدفع الخاصة بك                
+        </p>
+    </div>
+
+     <div class="row">
+        <div class="col-md-4 order-md-2 mb-4">
+            <h4 class="d-flex justify-content-between align-items-center mb-3">
+                <span class="text-muted">سلة التسوق الخاصة بك</span>
+                <span class="badge badge-secondary badge-pill">3</span>
+            </h4>
+            <ul class="list-group mb-3 sticky-top">
+
+                <li class="list-group-item d-flex justify-content-between lh-condensed">
+                    <div>
+                        <h6 class="my-0">اسم المنتج</h6>
+                    </div>
+                    <span class="text-muted">{{ cart.title }}</span> <!-- Display the title of the item -->
+                </li>
+
+            
+                <li class="list-group-item d-flex justify-content-between lh-condensed">
+                    <div>
+                        <h6 class="my-0">السعر</h6>
+                     </div>
+                    <span class="text-muted">{{ cart.price }}</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between lh-condensed">
+                    <div>
+                        <h6 class="my-0">الضريبة</h6>
+                     </div>
+                    <span class="text-muted">{{ cart.tax }}</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between bg-light">
+                    <div class="text-success">
+                        <h6 class="my-0">المجموع</h6>
+                     </div>
+                    <span class="text-success">{{ cart.total }}</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between">
+                    <span>الصافي (ريال سعودي)</span>
+                    <strong>{{ cart.total }}</strong>
+                </li>
+            </ul>
+            <form class="card p-2">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="رمز الخصم">
+                    <div class="input-group-append">
+                        <button type="submit" class="btn btn-secondary">استرداد</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-8 order-md-1">
+            <form method="post" class="needs-validation">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="firstName">الاسم الأول</label>
+                        <input type="text" class="form-control" id="firstName" required>
+                        <div class="invalid-feedback">الاسم الأول مطلوب.</div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="lastName">اسم العائلة</label>
+                        <input type="text" class="form-control" id="lastName" required>
+                        <div class="invalid-feedback">اسم العائلة مطلوب.</div>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="email">البريد الإلكتروني (اختياري)</label>
+                    <input type="email" class="form-control" id="email" placeholder="you@example.com">
+                    <div class="invalid-feedback">الرجاء إدخال عنوان بريد إلكتروني صحيح للحصول على تحديثات الشحن.</div>
+                </div>
+                <div class="mb-3">
+                    <label for="address">العنوان</label>
+                    <input type="text" class="form-control" id="address" placeholder="1234 Main St" required>
+                    <div class="invalid-feedback">الرجاء إدخال عنوان الشحن الخاص بك.</div>
+                </div>
+                
+                <hr class="mb-2">
+                <h4 class="mb-3">الدفع</h4>
+                <div class="d-block my-3">
+                    <div class="custom-control custom-radio">
+                        <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked required>
+                        <label class="custom-control-label" for="credit">بطاقة الائتمان</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input id="debit" name="paymentMethod" type="radio" class="custom-control-input" required>
+                        <label class="custom-control-label" for="debit">بطاقة الخصم</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input id="paypal" name="paymentMethod" type="radio" class="custom-control-input" required>
+                        <label class="custom-control-label" for="paypal">PayPal</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="cc-name">الاسم على البطاقة</label>
+                        <input type="text" class="form-control" id="cc-name" placeholder="" required>
+                        <small class="text-muted">الاسم الكامل كما هو معروض على البطاقة</small>
+                        <div class="invalid-feedback">اسم البطاقة مطلوب</div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="cc-number">رقم بطاقة الائتمان</label>
+                        <input type="text" class="form-control" id="cc-number" placeholder="" required>
+                        <div class="invalid-feedback">رقم بطاقة الائتمان مطلوب</div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3 mb-3">
+                        <label for="cc-expiration">تاريخ الانتهاء</label>
+                        <input type="text" class="form-control" id="cc-expiration" placeholder="" required>
+                        <div class="invalid-feedback">تاريخ الانتهاء مطلوب</div>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label for="cc-cvv">رمز CVV</label>
+                        <input type="text" class="form-control" id="cc-cvv" placeholder="" required>
+                        <div class="invalid-feedback">رمز الأمان مطلوب</div>
+                    </div>
+                </div>
+                <hr class="mb-3">
+                <button class="btn btn-primary btn-lg btn-block mb-3" type="submit"> <a href='/payment' >المتابعة إلى الدفع</a> </button>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="mt-5">
+
+</div>
+</body>
+{% endblock %}

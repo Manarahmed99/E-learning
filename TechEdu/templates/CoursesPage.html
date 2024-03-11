@@ -1,0 +1,65 @@
+{% extends 'Header_Footer.html' %} 
+ 
+{% block content %} 
+<section class="py-5 py-xl-8 mt-5 " style="background-color: #ffd166;">
+    <div class="container">
+
+    <h2 class="text-center" style="color:#ef476f;">  الدورات و البرامج </h2>
+
+    <form method="GET">
+        <div class="col text-center mt-5">
+            <a class="btnName mx-2" href="?category=">الجميع</a>
+            <a class="btnName mx-2" href="?category=Web Development">تطوير الويب</a>
+            <a class="btnName mx-2" href="?category=Mobile Development">تطوير تطبيقات الجوال</a>
+            <a class="btnName mx-2" href="?category=Artificial Intelligence">الذكاء الاصطناعي</a>
+            <a class="btnName mx-2" href="?category=User Interface">تصميم واجهات المستخدم</a>
+        </div>
+        
+    </form>
+
+    <section class="py-5 py-xl-8 mt-5 " style="background-color: #ffd166;">
+        <div class="container">
+            <div class="row">
+                {% for item in item_details %}
+                <div class="col-md-4">
+                    <div class="card mb-4" >
+                        <img class="mt-2  img-thumbnail  mx-1"  style="width: 400px; height: 300px;"src="{{ item.image }}" alt="{{ course.title }}" >
+                        <div class="card-body">
+                            <h5 class="card-title">{{ item.title }}</h5>
+                            <p class="card-text">الشارح:{{ item.instructor }}</p>
+                            <p class="card-text"> المجال : {{ item.itemsid.name }}</p>
+                            <p class="card-text"> السعر {{ item.price }} ريال</p>
+                            
+                        </div>
+                        <div class="card-footer d-flex justify-content-center">
+                            <a href="{% url 'Details'  id=item.id %}" class="btn btn-primary mx-2">لمعرفة المزيد</a>
+                            <a href="{% url 'add_to_cart' id=item.id %}"> <i class="mx-2 btn bi bi-cart-check-fill"></i></a>
+                        </div>
+
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    </section>
+
+
+
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+            {% if page_obj.has_previous %}
+                <a class="page-link btn" href="?category={{ category }}&page={{ page_obj.previous_page_number }}">السابق</a>
+            {% else %}
+                <span class="page-link btn disabled">السابق</span>
+            {% endif %}
+
+            {% if page_obj.has_next %}
+                <a class="page-link btn" href="?category={{ category }}&page={{ page_obj.next_page_number }}">التالي</a>
+            {% else %}
+                <span class="page-link btn disabled">التالي</span>
+            {% endif %}
+        </ul>
+    </nav>
+    
+    
+{% endblock %}

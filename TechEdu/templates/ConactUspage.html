@@ -1,0 +1,93 @@
+{% extends 'Header_Footer.html' %} 
+ 
+{% block content %} 
+<!--conact us-->
+
+<section class="py-5 py-xl-8 mt-5 " style="background-color: #ffd166;">
+    <div class="container">
+      <div class="row justify-content-md-center">
+        <div class="col-12 col-md-10 col-lg-8 col-xl-7 col-xxl-6">
+          <h2 class="mb-4 display-5 text-center">تواصل معنا</h2>
+          <hr class="w-50 mx-auto mb-5 mb-xl-9 border-dark-subtle">
+        </div>
+      </div>
+    </div>
+  
+    <div class="container">
+      <div class="row justify-content-lg-center">
+        <div class="col-12 col-lg-9">
+          <div class="bg-white border rounded shadow-sm overflow-hidden">
+  
+            <form action="#!">
+              <div class="row gy-4 gy-xl-5 p-4 p-xl-5">
+                <!-- Add user icon and dropdown menu -->
+                <div class="col-12">
+                  {% if user.is_authenticated %}
+                    <div class="dropdown ms-3 mt-2">
+                      <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-person-circle"></i>
+                      </a>
+                      <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <li>
+                          <form action="" method="post">
+                            <button class="dropdown-item">الصفحة الشخصية</button>
+                          </form>
+                        </li>
+                        <li>
+                          <form action="{% url 'auth_logout' %}" method="post">
+                            <button class="dropdown-item">تسجيل الخروج</button>
+                          </form>
+                        </li>
+                      </ul>
+                    </div>
+                  {% endif %}
+                </div>
+                <!-- End of user icon and dropdown menu -->
+
+                <div class="col-12 col-md-4">
+                  <label for="fullname" class="form-label">الاسم <span class="text-danger">*</span></label>
+                  <div class="input-group">
+                    <span class="input-group-text">
+                        <i class="bi bi-person" style="color: #ef476f;"></i>
+                    </span>
+                    <input type="text" class="form-control" id="fullname" value="" required>
+                  </div>
+                </div>
+                <div class="col-12 col-md-4">
+                  <label for="email" class="form-label">البريد الالكتروني <span class="text-danger">*</span></label>
+                  <div class="input-group">
+                    <span class="input-group-text">
+                        <i class="bi bi-envelope" style="color: #ef476f;"></i>
+                    </span>
+                    <input type="email" class="form-control" id="email" value="" required>
+                  </div>
+                </div>
+                <div class="col-12 col-md-4">
+                  <label for="phone" class="form-label">رقم التواصل</label>
+                  <div class="input-group">
+                    <span class="input-group-text">
+                      <i class="bi bi-telephone" style="color: #ef476f;"></i>
+                    </span>
+                    <input type="tel" class="form-control" id="phone" name="phone" value="">
+                  </div>
+                </div>
+                <div class="col-12">
+                  <label for="comment" class="form-label">الرسالة <span class="text-danger">*</span></label>
+                  <textarea class="form-control" id="comment" rows="3" required></textarea>
+                </div>
+
+                <div class="col-12">
+                  <div class="d-grid">
+                    <button class="btn" type="submit">ارسال</button>
+                  </div>
+                </div>
+              </div>
+            </form>
+  
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+{% endblock %}

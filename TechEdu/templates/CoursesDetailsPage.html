@@ -1,0 +1,31 @@
+{% extends "Header_Footer.html" %}
+
+{% block content %}
+<section class="py-5 py-xl-8 mt-5" style="background-color: #ffd166;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card mt-5">
+                    <div class="row g-0">
+                        <div class="col-md-3 mt-5 mx-5">
+                            <img class="img-thumbnail" src="{{ item_details.image }}" alt="{{ item_details.title }}">
+                        </div>
+                        <div class="col-md-6 mt-5">
+                            <div class="card-body">
+                                <h5 class="card-title" style="color: #ef476f; font-size: 30px;">{{ item_details.title }}</h5>
+                                <p class="card-text">{{ item_details.description }}</p>
+                                <p class="card-text"> <strong>الشارح:</strong>   {{ item_details.instructor }}</p>
+                                <p class="card-text"> <strong>المجال:</strong> {{ item_details.itemsid.name }}</p>
+                                <p class="card-text"><strong>السعر:</strong>{{ item_details.total }} ريال</p>
+
+                                <a href="{% url 'checkout' %}" class="btn btn-warning shadow-0"> اشترك الآن </a>
+                                <a href="{% url 'add_to_cart' id=item_details.id %}" class="btn btn-primary shadow-0"><i class="bi bi-cart-check-fill"></i> </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

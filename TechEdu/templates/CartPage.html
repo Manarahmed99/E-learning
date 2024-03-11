@@ -1,0 +1,59 @@
+{% extends 'Header_Footer.html' %}
+
+{% block content %}
+<body class="bg-light">
+    <div class="container mt-5">
+        <div class="py-5 text-center">
+            <img class="d-block mx-auto mb-4" src="https://cdn-icons-png.freepik.com/512/7835/7835563.png" alt="" width="99" height="99">
+            <h2>سلة التسوق الخاصة بك</h2>
+        </div>
+
+        <section class="h-100 h-custom" style="background-color: #eee;">
+            <div class="container py-5 h-100">
+                <div class="row d-flex justify-content-center align-items-center h-100">
+                    <div class="col">
+                        <div class="card">
+                            <div class="card-body p-4">
+                                <div class="row">
+                                    {% if cart_items %}
+                                        {% for item in cart_items %}
+                                            <div class="card mb-3">
+                                                <div class="card-body">
+                                                    <div class="d-flex justify-content-between">
+                                                        <div class="d-flex flex-row align-items-center">
+                                                            <div>
+                                                                <img src="{{ item.image }}" class="img-fluid rounded-3" alt="Shopping item" style="width: 65px;">
+                                                            </div>
+                                                            <div class="ms-3 mx-3">
+                                                                <h5 style="font-size: 18px;">{{ item.title }}</h5>
+                                                                <p class="small mb-0" style="font-size: 18px;" >المجال: {{ item.itemsid }}</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="d-flex flex-row align-items-center">
+                                                            <div style="width: 80px;">
+                                                                <h5 class="mb-0">{{ item.total }} ريال</h5>
+                                                            </div>
+                                                            <a href="{% url 'delete_item' item.id %}"><i class="btn  mx-2 bi bi-trash" style="color: #ef476f;"></i></a>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        {% endfor %}
+                                    {% else %}
+                                        <p class="text-center" style="font-size: 28px; font-weight: bold;">سلة التسوق فارغة.</p>
+                                    {% endif %}
+                                </div>
+                                <div class="mt-5 d-flex justify-content-center">
+                                  <a href="{% url 'checkout' %}" class="btn btn-primary mx-2">إدفع الان</a>
+                              </div>
+                               
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+{% endblock %}
